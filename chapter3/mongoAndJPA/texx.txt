@@ -1,0 +1,19 @@
+                                             Вы можете настроить пользовательское максимальное
+                                            количество соединений на пул,
+                                            а именно максимальный размер пула соединений,
+                                            настроив свойство  spring.datasource.hikari.maximum-pool-size
+
+
+Настройки в application.properties для MongoDB
+===========================================================================
+spring.data.mongodb.authentication-database=<Authentication database name>
+spring.data.mongodb.database=<Database name>
+spring.data.mongodb.field-naming-strategy=<Field Naming Strategy>
+spring.data.mongodb.gridfs.database=<Gridfs database>
+spring.data.mongodb.host=<Database Hostname>
+spring.data.mongodb.password=<Database password>
+spring.data.mongodb.port=<Database Port>
+spring.data.mongodb.uri=<Database URI>
+spring.data.mongodb.username=<Database Username>
+spring.mongodb.embedded.version=2.6.10
+=============================================================================
