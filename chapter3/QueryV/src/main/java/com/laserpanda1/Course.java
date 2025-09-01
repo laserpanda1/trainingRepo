@@ -6,11 +6,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "COURSES")
-@NamedQueries({@NamedQuery(name = "Course.findAllByCategoryAndRating",
-                query = "SELECT c FROM Course c WHERE c.category=?1 and c.rating=2"),
-                @NamedQuery(name = "Course.findAllByRating",
-                        query = "SELECT c FROM Course c WHERE c.rating=?1"),
-})
+
 public class Course {
 
     @Id

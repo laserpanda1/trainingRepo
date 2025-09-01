@@ -30,6 +30,10 @@
 		<module>chapter3/relationData</module>
 		<module>chapter3/RepoDemo</module>
 		<module>chapter3/customRepo</module>
+		<module>chapter3/paggingAndSorting</module>
+		<module>chapter3/QueryV</module>
+		<module>chapter3/finalProj</module>
+		<module>chapter4/ch4</module>
 	</modules>
     <scm>
 		<connection/>

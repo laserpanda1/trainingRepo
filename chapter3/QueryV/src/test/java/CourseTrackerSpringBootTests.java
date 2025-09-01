@@ -2,25 +2,30 @@ import com.laserpanda1.Course;
 import com.laserpanda1.CourseRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest
-public class SpringBootApplicationTests {
+@DataJpaTest
+public class CourseTrackerSpringBootTests {
 
     @Autowired
     private CourseRepository courseRepository;
 
-   @Test
-    public void givenCreateCourseWhenLoadTheCourseThenExpectThreeCourse() {
-        courseRepository.saveAll(getCourseList());
-        assertThat(courseRepository.findAllByCategoryAndRating("Spring", 4)).hasSize(1);
-   }
+    @Test
+    public void givenCoursesCreatedWhenLoadCoursesWithQueryThenExpectCorrectCourseDetails() {
+        saveMockCourses();
+        assertThat(courseRepository.findAllByCategory("Spring")).hasSize(1);
+        assertThat(courseRepository.findAllByRating(5)).hasSize(1);
+        assertThat(courseRepository.findAllByCategoryAndRatingGreaterThan
+                ("Spring", 3)).hasSize(2);
+        assertThat(courseRepository.updateCourseRatingByName(4, "Java Programming"));
 
-    private List<Course> getCourseList() {
+    }
+
+    private List<Course> saveMockCourses() {
         return List.of(
                 new Course("Scalable, Cloud Native Data Applications",
                         "Spring", 4,

@@ -1,16 +1,13 @@
 package com.laserpanda1;
-
+import java.util.Set;
 import jakarta.persistence.*;
 import lombok.Data;
 
-@Entity
+import java.util.HashSet;
+
+@Entity(name = "COURSE")
 @Data
 @Table(name = "COURSES")
-@NamedQueries({@NamedQuery(name = "Course.findAllByCategoryAndRating",
-                query = "SELECT c FROM Course c WHERE c.category=?1 and c.rating=2"),
-                @NamedQuery(name = "Course.findAllByRating",
-                        query = "SELECT c FROM Course c WHERE c.rating=?1"),
-})
 public class Course {
 
     @Id
@@ -25,6 +22,9 @@ public class Course {
     private int rating;
 
     private String description;
+
+    @ManyToMany
+    public Set<Author> authors = new HashSet<>();
 
     public Course(String name, String category, int rating, String description) {
         this.name = name;
